@@ -17,6 +17,6 @@ class RootViewController: UIViewController {
 
 
     @IBAction func getInfoTapped(_ sender: UIButton) {
-        self.navigationController?.pushViewController(ListViewController(nibName: "ListViewController", bundle: nil), animated: true)
+        self.navigationController?.pushViewController(CollectionViewController(nibName: "CollectionViewController", bundle: nil), animated: true)
     }
 }
