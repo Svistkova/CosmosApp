@@ -51,14 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		790BAD182660EE69005B2E0C /* ListViewController */ = {
+		790BAD182660EE69005B2E0C /* CollectionViewController */ = {
 			isa = PBXGroup;
 			children = (
 				790BAD192660EE7A005B2E0C /* cell */,
 				790BAD1B26611A55005B2E0C /* CollectionViewController.swift */,
 				790BAD1C26611A55005B2E0C /* CollectionViewController.xib */,
 			);
-			path = ListViewController;
+			path = CollectionViewController;
 			sourceTree = "<group>";
 		};
 		790BAD192660EE7A005B2E0C /* cell */ = {
@@ -77,6 +77,15 @@
 				79AED0F4265E9ED9001BC51C /* RootViewController.xib */,
 			);
 			path = RootViewController;
+			sourceTree = "<group>";
+		};
+		790BAD1F2661324B005B2E0C /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				79AED13E2660D275001BC51C /* NetworkingService.swift */,
+				79AED1402660D645001BC51C /* APIData.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		79AED0D3265E9E67001BC51C = {
@@ -98,9 +107,8 @@
 		79AED0DE265E9E67001BC51C /* TestNewApp */ = {
 			isa = PBXGroup;
 			children = (
-				79AED13E2660D275001BC51C /* NetworkingService.swift */,
-				79AED1402660D645001BC51C /* APIData.swift */,
-				790BAD182660EE69005B2E0C /* ListViewController */,
+				790BAD1F2661324B005B2E0C /* Networking */,
+				790BAD182660EE69005B2E0C /* CollectionViewController */,
 				790BAD1A2660EEA7005B2E0C /* RootViewController */,
 				79AED0DF265E9E67001BC51C /* AppDelegate.swift */,
 				79AED0E1265E9E67001BC51C /* SceneDelegate.swift */,
