@@ -15,12 +15,3 @@ struct APIData: Codable {
     let vehicles: String
     let starships: String
 }
-
-struct APIModel: Decodable {
-    let people: String
-    let planets: String
-    let films: String
-    let species: String
-    let vehicles: String
-    let starships: String
-}
