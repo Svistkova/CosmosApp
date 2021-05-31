@@ -11,6 +11,8 @@
 		790BAD172660EA13005B2E0C /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 790BAD152660EA13005B2E0C /* CollectionViewCell.xib */; };
 		790BAD1D26611A55005B2E0C /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790BAD1B26611A55005B2E0C /* CollectionViewController.swift */; };
 		790BAD1E26611A55005B2E0C /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 790BAD1C26611A55005B2E0C /* CollectionViewController.xib */; };
+		790BAD222665104E005B2E0C /* DetailCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 790BAD202665104E005B2E0C /* DetailCollectionViewController.swift */; };
+		790BAD232665104E005B2E0C /* DetailCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 790BAD212665104E005B2E0C /* DetailCollectionViewController.xib */; };
 		797CA04A2660DA440081EB08 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 797CA0492660DA440081EB08 /* Alamofire */; };
 		79AED0E0265E9E67001BC51C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AED0DF265E9E67001BC51C /* AppDelegate.swift */; };
 		79AED0E2265E9E67001BC51C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79AED0E1265E9E67001BC51C /* SceneDelegate.swift */; };
@@ -27,6 +29,8 @@
 		790BAD152660EA13005B2E0C /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
 		790BAD1B26611A55005B2E0C /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		790BAD1C26611A55005B2E0C /* CollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
+		790BAD202665104E005B2E0C /* DetailCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewController.swift; sourceTree = "<group>"; };
+		790BAD212665104E005B2E0C /* DetailCollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailCollectionViewController.xib; sourceTree = "<group>"; };
 		79AED0DC265E9E67001BC51C /* TestNewApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestNewApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		79AED0DF265E9E67001BC51C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		79AED0E1265E9E67001BC51C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +92,15 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		790BAD2426651054005B2E0C /* DetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				790BAD202665104E005B2E0C /* DetailCollectionViewController.swift */,
+				790BAD212665104E005B2E0C /* DetailCollectionViewController.xib */,
+			);
+			path = DetailViewController;
+			sourceTree = "<group>";
+		};
 		79AED0D3265E9E67001BC51C = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				790BAD1F2661324B005B2E0C /* Networking */,
+				790BAD2426651054005B2E0C /* DetailViewController */,
 				790BAD182660EE69005B2E0C /* CollectionViewController */,
 				790BAD1A2660EEA7005B2E0C /* RootViewController */,
 				79AED0DF265E9E67001BC51C /* AppDelegate.swift */,
@@ -185,6 +199,7 @@
 				790BAD1E26611A55005B2E0C /* CollectionViewController.xib in Resources */,
 				79AED0EC265E9E67001BC51C /* LaunchScreen.storyboard in Resources */,
 				79AED0E9265E9E67001BC51C /* Assets.xcassets in Resources */,
+				790BAD232665104E005B2E0C /* DetailCollectionViewController.xib in Resources */,
 				79AED0F6265E9ED9001BC51C /* RootViewController.xib in Resources */,
 				790BAD172660EA13005B2E0C /* CollectionViewCell.xib in Resources */,
 			);
@@ -202,6 +217,7 @@
 				79AED0E0265E9E67001BC51C /* AppDelegate.swift in Sources */,
 				790BAD162660EA13005B2E0C /* CollectionViewCell.swift in Sources */,
 				790BAD1D26611A55005B2E0C /* CollectionViewController.swift in Sources */,
+				790BAD222665104E005B2E0C /* DetailCollectionViewController.swift in Sources */,
 				79AED0E2265E9E67001BC51C /* SceneDelegate.swift in Sources */,
 				79AED0F5265E9ED9001BC51C /* RootViewController.swift in Sources */,
 			);

@@ -16,16 +16,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="334" height="71"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kA-vs-M0A">
-                        <rect key="frame" x="20" y="11" width="294" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4kA-vs-M0A">
+                        <rect key="frame" x="20" y="10" width="294" height="23"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                         <color key="textColor" red="1" green="0.98823523520000001" blue="0.54901963470000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Link" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AI9-y2-Oqm">
-                        <rect key="frame" x="20" y="40" width="294" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Link" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AI9-y2-Oqm">
+                        <rect key="frame" x="20" y="43" width="294" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="1" green="0.98823523520000001" blue="0.54901963470000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <nil key="highlightedColor"/>
@@ -33,6 +31,14 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="AI9-y2-Oqm" firstAttribute="top" secondItem="4kA-vs-M0A" secondAttribute="bottom" constant="10" id="3d5-0Z-c8h"/>
+                <constraint firstItem="4kA-vs-M0A" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="8Ef-CN-lHC"/>
+                <constraint firstAttribute="trailing" secondItem="4kA-vs-M0A" secondAttribute="trailing" constant="20" id="8ot-MR-Hvs"/>
+                <constraint firstAttribute="trailing" secondItem="AI9-y2-Oqm" secondAttribute="trailing" constant="20" id="N4K-B1-jfk"/>
+                <constraint firstItem="4kA-vs-M0A" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="cU2-gq-Y1f"/>
+                <constraint firstItem="AI9-y2-Oqm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="mEy-uW-Bhz"/>
+            </constraints>
             <size key="customSize" width="334" height="71"/>
             <connections>
                 <outlet property="cellSubtitle" destination="AI9-y2-Oqm" id="BwR-hr-fLr"/>

@@ -15,3 +15,4 @@ struct APIData: Codable {
     let vehicles: String
     let starships: String
 }
+

@@ -22,5 +22,9 @@ struct APINetworkingService {
             }
         }
     }
+
+    func getDetailedResults(completed:  @escaping (APIData) -> Void) {
+        
+    }
 }
 

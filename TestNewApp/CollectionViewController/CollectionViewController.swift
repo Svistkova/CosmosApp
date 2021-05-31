@@ -67,6 +67,12 @@ class CollectionViewController: UICollectionViewController {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
     }
+
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CollectionViewCell
+        self.navigationController?.pushViewController(DetailCollectionViewController(nibName: "DetailCollectionViewController", bundle: nil), animated: false)
+        //написать код при селекте
+    }
 }
 
     //MARK: UICollectionViewDelegateFlowLayout
