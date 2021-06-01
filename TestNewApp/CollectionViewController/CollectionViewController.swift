@@ -13,12 +13,7 @@ class CollectionViewController: UICollectionViewController {
     private let reuseIdentifier = "Cell"
     private let service = APINetworkingService()
 
-    private var cells = ["People" : "",
-                 "Planets" : "",
-                 "Films" : "",
-                 "Species" : "",
-                 "Vehicles" : "",
-                 "Starships" : ""] {
+    private var viewModelArray = [ViewModel]() {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.collectionView.reloadData()
@@ -38,27 +33,27 @@ class CollectionViewController: UICollectionViewController {
 
     private func fetchData() {
         service.getResults { [weak self] model in
-                self?.cells["People"] = model.people
-                self?.cells["Planets"] = model.planets
-                self?.cells["Films"] = model.films
-                self?.cells["Species"] = model.species
-                self?.cells["Vehicles"] = model.vehicles
-                self?.cells["Starships"] = model.starships
+            guard let self = self else { return }
+            self.viewModelArray = [
+                ViewModel(title: "People", subTitle: model.people),
+                ViewModel(title: "Planets", subTitle: model.planets),
+                ViewModel(title: "Films", subTitle: model.films),
+                ViewModel(title: "Species", subTitle: model.species),
+                ViewModel(title: "Vehicles", subTitle: model.vehicles),
+                ViewModel(title: "Starships", subTitle: model.starships),
+            ]
         }
     }
 
     // MARK: UICollectionViewDataSource
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cells.count
+        return viewModelArray.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CollectionViewCell
-        let titleArray = cells.map({$0.key})
-        cell.configure(title: titleArray[indexPath.row], subtitle: cells[titleArray[indexPath.row]]!)
-        cell.backgroundColor = UIColor(named: "cellColor")
-        cell.layer.cornerRadius = 20
+        cell.configure(title: viewModelArray[indexPath.row].title, subtitle: viewModelArray[indexPath.row].subTitle)
         return cell
     }
 
@@ -70,7 +65,7 @@ class CollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.navigationController?.pushViewController(DetailCollectionViewController(nibName: "DetailCollectionViewController", bundle: nil), animated: false)
-        //написать код при селекте
+        print(viewModelArray[indexPath.row].subTitle)
     }
 }
 

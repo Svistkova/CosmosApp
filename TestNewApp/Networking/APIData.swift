@@ -7,6 +7,16 @@
 
 import Foundation
 
+class ViewModel {
+    let title: String
+    let subTitle: String
+
+    init(title: String, subTitle: String) {
+        self.title = title
+        self.subTitle = subTitle
+    }
+}
+
 struct APIData: Codable {
     let people: String
     let planets: String

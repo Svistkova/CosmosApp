@@ -19,7 +19,7 @@ class DetailCollectionViewController: UICollectionViewController {
             }
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -92,13 +92,11 @@ class DetailCollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
+
     }
     */
-    
-}
 
-//MARK: UICollectionViewDelegateFlowLayout
+}
 
 extension DetailCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

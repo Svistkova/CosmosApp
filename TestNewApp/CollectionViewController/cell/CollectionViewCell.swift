@@ -13,6 +13,9 @@ class CollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+
+        backgroundColor = UIColor(named: "cellColor")
+        layer.cornerRadius = 20
     }
 
     func configure(title: String, subtitle: String) {
