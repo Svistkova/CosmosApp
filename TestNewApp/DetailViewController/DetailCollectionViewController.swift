@@ -10,13 +10,15 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class DetailCollectionViewController: UICollectionViewController {
+    private let service = APINetworkingService()
 
-    private var cells = ["People" : "",
-                 "Planets" : "",
-                 "Films" : "",
-                 "Species" : "",
-                 "Vehicles" : "",
-                 "Starships" : ""]
+    private var cells: [PeopleModel] = [] {
+        didSet {
+            DispatchQueue.main.async { [weak self] in
+                self?.collectionView.reloadData()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,10 +28,17 @@ class DetailCollectionViewController: UICollectionViewController {
 
         // Register cell classes
         self.collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
+        fetchDetailedData()
 
         // Do any additional setup after loading the view.
     }
 
+
+    private func fetchDetailedData() {
+        service.getDetailedResults(url: "http://swapi.dev/api/people/?page=1") { receivedInfo in
+            self.cells = receivedInfo
+        }
+    }
     /*
     // MARK: - Navigation
 
@@ -50,11 +59,9 @@ class DetailCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CollectionViewCell
-        let titleArray = cells.map({$0.key})
-        cell.configure(title: titleArray[indexPath.row], subtitle: cells[titleArray[indexPath.row]]!)
-    
-        // Configure the cell
-    
+        cell.configure(title: cells[indexPath.row].name, subtitle: cells[indexPath.row].gender)
+        cell.backgroundColor = UIColor(named: "cellColor")
+        cell.layer.cornerRadius = 20
         return cell
     }
 
@@ -89,4 +96,12 @@ class DetailCollectionViewController: UICollectionViewController {
     }
     */
     
+}
+
+//MARK: UICollectionViewDelegateFlowLayout
+
+extension DetailCollectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width - 20, height: 80)
+    }
 }

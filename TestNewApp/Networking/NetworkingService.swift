@@ -23,8 +23,18 @@ struct APINetworkingService {
         }
     }
 
-    func getDetailedResults(completed:  @escaping (APIData) -> Void) {
-        
+    func getDetailedResults(url: String, completed:  @escaping ([PeopleModel]) -> Void) {
+        AF.request(url).responseDecodable(of: PeopleData.self) { response in
+            switch response.result {
+            case .success(let data):
+                let resultModel: [PeopleModel] = data.results.map { singlePersonInfo in
+                    PeopleModel(name: singlePersonInfo.name, gender: singlePersonInfo.gender)
+                }
+                completed(resultModel)
+            case .failure(_):
+                print("Networking Failed")
+            }
+        }
     }
 }
 

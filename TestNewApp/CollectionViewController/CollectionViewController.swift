@@ -69,7 +69,6 @@ class CollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CollectionViewCell
         self.navigationController?.pushViewController(DetailCollectionViewController(nibName: "DetailCollectionViewController", bundle: nil), animated: false)
         //написать код при селекте
     }

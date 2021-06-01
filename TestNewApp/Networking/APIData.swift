@@ -16,3 +16,47 @@ struct APIData: Codable {
     let starships: String
 }
 
+struct PeopleData: Codable {
+    let results: [PeopleResultData]
+}
+
+struct PeopleResultData: Codable {
+    let name: String
+    let gender: String
+}
+
+
+enum CellType {
+    case people(PeopleModel)
+    case planets(PlanetsModel)
+    case films(FilmsModel)
+    case species(SpeciesModel)
+    case vehicles(VehiclesModel)
+    case starships(StarshipsModel)
+}
+
+
+struct PeopleModel {
+    let name: String
+    let gender: String
+}
+
+struct PlanetsModel {
+
+}
+
+struct FilmsModel {
+
+}
+
+struct SpeciesModel {
+
+}
+
+struct VehiclesModel {
+
+}
+
+struct StarshipsModel {
+
+}
