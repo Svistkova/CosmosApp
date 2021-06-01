@@ -35,12 +35,12 @@ class CollectionViewController: UICollectionViewController {
         service.getResults { [weak self] model in
             guard let self = self else { return }
             self.viewModelArray = [
-                ViewModel(title: "People", subTitle: model.people),
-                ViewModel(title: "Planets", subTitle: model.planets),
-                ViewModel(title: "Films", subTitle: model.films),
-                ViewModel(title: "Species", subTitle: model.species),
-                ViewModel(title: "Vehicles", subTitle: model.vehicles),
-                ViewModel(title: "Starships", subTitle: model.starships),
+                ViewModel(title: "People", subTitle: model.people, type: .people),
+                ViewModel(title: "Planets", subTitle: model.planets, type: .planets),
+                ViewModel(title: "Films", subTitle: model.films, type: .films),
+                ViewModel(title: "Species", subTitle: model.species, type: .species),
+                ViewModel(title: "Vehicles", subTitle: model.vehicles, type: .vehicles),
+                ViewModel(title: "Starships", subTitle: model.starships, type: .starships),
             ]
         }
     }
@@ -64,11 +64,10 @@ class CollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(viewModelArray[indexPath.row].subTitle)
         let secondVC = DetailCollectionViewController(nibName: "DetailCollectionViewController", bundle: nil)
 
-        service.getDetailedResults(url: viewModelArray[indexPath.row].subTitle) { peopleModel in
-            secondVC.cells = peopleModel.map { ViewModel(title: $0.name, subTitle: $0.gender) }
+        service.getDetailedResults(url: viewModelArray[indexPath.row].subTitle, infoType: viewModelArray[indexPath.row].type) { peopleModel in
+            secondVC.cells = peopleModel.map { DetailCellModel(title: $0.title, subTitle: $0.subTitle) }
         }
 
         self.navigationController?.pushViewController(secondVC, animated: false)
