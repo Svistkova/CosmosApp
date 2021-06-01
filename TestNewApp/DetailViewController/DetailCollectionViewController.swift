@@ -12,7 +12,7 @@ private let reuseIdentifier = "Cell"
 class DetailCollectionViewController: UICollectionViewController {
     private let service = APINetworkingService()
 
-    private var cells: [PeopleModel] = [] {
+    var cells: [ViewModel] = [] {
         didSet {
             DispatchQueue.main.async { [weak self] in
                 self?.collectionView.reloadData()
@@ -28,17 +28,10 @@ class DetailCollectionViewController: UICollectionViewController {
 
         // Register cell classes
         self.collectionView.register(UINib(nibName: "CollectionViewCell", bundle: nil), forCellWithReuseIdentifier: reuseIdentifier)
-        fetchDetailedData()
 
         // Do any additional setup after loading the view.
     }
 
-
-    private func fetchDetailedData() {
-        service.getDetailedResults(url: "http://swapi.dev/api/people/?page=1") { receivedInfo in
-            self.cells = receivedInfo
-        }
-    }
     /*
     // MARK: - Navigation
 
@@ -59,9 +52,7 @@ class DetailCollectionViewController: UICollectionViewController {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CollectionViewCell
-        cell.configure(title: cells[indexPath.row].name, subtitle: cells[indexPath.row].gender)
-        cell.backgroundColor = UIColor(named: "cellColor")
-        cell.layer.cornerRadius = 20
+        cell.configure(title: cells[indexPath.row].title, subtitle: cells[indexPath.row].subTitle)
         return cell
     }
 

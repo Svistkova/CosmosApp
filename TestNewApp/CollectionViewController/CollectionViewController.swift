@@ -64,8 +64,14 @@ class CollectionViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.navigationController?.pushViewController(DetailCollectionViewController(nibName: "DetailCollectionViewController", bundle: nil), animated: false)
         print(viewModelArray[indexPath.row].subTitle)
+        let secondVC = DetailCollectionViewController(nibName: "DetailCollectionViewController", bundle: nil)
+
+        service.getDetailedResults(url: viewModelArray[indexPath.row].subTitle) { peopleModel in
+            secondVC.cells = peopleModel.map { ViewModel(title: $0.name, subTitle: $0.gender) }
+        }
+
+        self.navigationController?.pushViewController(secondVC, animated: false)
     }
 }
 
@@ -76,3 +82,5 @@ extension CollectionViewController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: view.frame.width - 20, height: 80)
     }
 }
+
+
